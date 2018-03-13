@@ -31,6 +31,7 @@ void Alumno::write(ofstream& out){
 
   //edad es int
   out.write(reinterpret_cast<char*>(&edad), sizeof(int));
+
 }
 
 void Alumno::read(ifstream& in){
@@ -55,5 +56,6 @@ void Alumno::read(ifstream& in){
 
   //edad
   in.read(reinterpret_cast<char*>(&size), sizeof(int));
+  
 
 }
