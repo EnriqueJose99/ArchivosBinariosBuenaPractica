@@ -1,0 +1,21 @@
+#ifndef ALUMNO_H
+#define ALUMNO_H
+#include <string>
+#include <fstream>
+#include <ostream>
+using namespace std;
+class Alumno{
+private:
+  string nombre, cuenta, carrera;
+  int edad;
+public:
+  Alumno();
+  Alumno(string, string, string,int);
+
+  void write(ofstream&);
+  void read(ifstream&);
+
+  //friend ostream& operator<<(ostream, const Alumno&);
+  //friend istream& operator<<(istream, Alumno&);
+};
+#endif
