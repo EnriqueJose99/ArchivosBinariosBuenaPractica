@@ -15,7 +15,7 @@ public:
   void write(ofstream&);
   void read(ifstream&);
 
-  //friend ostream& operator<<(ostream, const Alumno&);
-  //friend istream& operator<<(istream, Alumno&);
+  friend ostream& operator << (ostream&, const Alumno&);
+  friend istream& operator >> (istream&, Alumno&);
 };
 #endif

@@ -7,12 +7,14 @@ using namespace std;
 Alumno::Alumno(){
 
 }
+
 Alumno::Alumno(string pNombre, string pCuenta, string pCarrera, int pEdad){
   nombre = pNombre;
   cuenta = pCuenta;
   carrera = pCarrera;
   edad = pEdad;
 }
+
 void Alumno::write(ofstream& out){
   //nombre
   int size = nombre.size();
@@ -56,6 +58,10 @@ void Alumno::read(ifstream& in){
 
   //edad
   in.read(reinterpret_cast<char*>(&size), sizeof(int));
-  
 
+}
+
+ostream& operator<<(ostream& out, const Alumno& student){
+  out<<student.nombre<<", "<<student.cuenta<<", "<<student.carrera<<", "<<student.edad<<"."<<endl;
+  return out;
 }
