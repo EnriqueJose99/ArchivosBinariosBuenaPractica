@@ -16,6 +16,7 @@ public:
   void read(ifstream&);
   int getEdad(){return edad;}
   int operator+(Alumno&);
+  //bool operator==(Alumno&); y asi con algunos operadores
 
 
   friend ostream& operator << (ostream&, const Alumno&);
