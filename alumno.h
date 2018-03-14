@@ -14,6 +14,9 @@ public:
 
   void write(ofstream&);
   void read(ifstream&);
+  int getEdad(){return edad;}
+  int operator+(Alumno&);
+
 
   friend ostream& operator << (ostream&, const Alumno&);
   friend istream& operator >> (istream&, Alumno&);

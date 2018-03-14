@@ -5,7 +5,8 @@
 using namespace std;
 
 Alumno::Alumno(){
-
+  //carrera = "Ing.Sistemas Computacionales";
+  //edad = 18;
 }
 
 Alumno::Alumno(string pNombre, string pCuenta, string pCarrera, int pEdad){
@@ -14,7 +15,9 @@ Alumno::Alumno(string pNombre, string pCuenta, string pCarrera, int pEdad){
   carrera = pCarrera;
   edad = pEdad;
 }
-
+int Alumno::operator+(Alumno& rightValue){
+  return this -> edad+rightValue.getEdad();
+}
 void Alumno::write(ofstream& out){
   //nombre
   int size = nombre.size();
@@ -62,6 +65,40 @@ void Alumno::read(ifstream& in){
 }
 
 ostream& operator<<(ostream& out, const Alumno& student){
-  out<<student.nombre<<", "<<student.cuenta<<", "<<student.carrera<<", "<<student.edad<<"."<<endl;
+  out<<student.nombre<<", "<<student.cuenta<<", "<<student.carrera<<", "<<student.edad<<endl;
   return out;
+}
+
+istream& operator>>(istream& in, Alumno& student){
+  string buffer;
+  //leer una linea de archivo
+  getline(in, buffer);
+  string parse = " ";
+  int parse1 = 0;
+  int cont = 0;
+  for (int i = 0; i < buffer.size(); i++) {
+    if (buffer[i] != ',') {
+      parse+=buffer[i];
+
+      /* code */
+    }else{
+      switch (cont) {
+        case 0:
+          student.nombre = parse;
+          parse = "";
+          break;
+        case 1:
+          student.cuenta = parse;
+          parse ="";
+        case 2:
+          student.carrera = parse;
+          parse = "";
+        case 3:
+          student.edad = parse1;
+          parse1 = 0;
+
+      }
+      cont++;
+    }
+  }
 }
